@@ -1,3 +1,7 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
+
+[security.html]
+  allowInlineScripts = true  # Allows <script> tags with inline JS
+  allowInlineStyles = true   # Optional: if using inline styles
