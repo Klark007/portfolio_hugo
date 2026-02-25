@@ -4,12 +4,17 @@ date: 2026-01-29T11:22:10+01:00
 description: "a real-time renderer in vulkan to learn new things with"
 summary: "summary"
 tags: ["vulkan", "real-time rendering", "C++"]
+
 featured: true
-draft: true
+weight: 1
+
 params:
   math: true
-showTableOfContents: true
+draft: true
 ---
+
+<link rel="stylesheet" type="text/css" href="/beerslider/BeerSlider.css">
+
 
 For this project, I build a real time renderer (rasterizer) in Vulkan. Part of the motivation being to learn a lower level / more modern graphics API another being to imitate an image me and my group partner created for the rendering competition at ETH ([click here]() to go to the page about that project). The renderer is a simple forward renderer using Vulkan 1.3 using Dynamic Rendering.
 
@@ -21,7 +26,7 @@ trying to mimick the visual of a raytracer made at eth
 
 -->
 
-# Terrain system
+## Terrain system
 
 <div align="center">
 <table>
@@ -61,29 +66,35 @@ H = \frac{h_{uu} (1 + h_v^2) - 2h_{uv} h_u h_v + h_{vv} (1 + h_u^2)}{2 (1 + h_u^
 
 We can precompute the curvature on initialization and then we only require one texture look up. For the details on the computation of mean curvature look at [Adaptive Hardware-accelerated Terrain Tessellation](https://www.diva-portal.org/smash/get/diva2:617225/FULLTEXT01.pdf).
 
-# Shadows
+## Shadows
+The idea of cascaded shadow maps is to split the shadow frustum such that closer to the camera the shadows have higher resolutions than far away and thus keeping the error similar. We only support directional lights / shadows currently.
 
-# CPU Instancing
+<div align="center">
+ <img src="cascade_visualization.png">
+ Visualize a camera and the different frustums.
+</div>
 
-<link rel="stylesheet" type="text/css" href="/beerslider/BeerSlider.css">
+In the above image we can see given a camera frustum (outside the image on the left) how 3 cascades would look with red having the highest resolution. We render the scene with an orthogonal projection for each cascade only storing the depth value in a texture array. Later on if we want to check if a fragment is in shadow, we first calculate in which cascade it belongs (number of cascades given as a specialization constant) and can then compare it's depth from the light source to the depth stored in the texture. Instead of sampling (eg. linearly interpolating the 4 texels) and then comparing to the depth, we instead compare each texel and interpolate the comparison values (0 or 1). This could already be seen as a sort of soft shadow but is always used (fixed size penumbra) For more details on cascaded shadow maps, read [Nvidia's paper](https://developer.download.nvidia.com/SDK/10.5/opengl/src/cascaded_shadow_maps/doc/cascaded_shadow_maps.pdf).
 
-<div id="slider1" class="beer-slider" data-beer-label="before">
-  <img src="/images/wulkan/None1.png" alt="">
-  <div class="beer-reveal" data-beer-label="after">
-    <img src="/images/wulkan/Rheinhard1.png" alt="">
+<div id="slider1" class="beer-slider" data-beer-label="Hard Shadows">
+  <img src="/images/wulkan/HardShadows.png" alt="">
+
+  <div class="beer-reveal" data-beer-label="No Shadows">
+    <img src="/images/wulkan/NoShadows.png" alt="">
   </div>
 </div>
 
-<div id="slider2" class="beer-slider" data-beer-label="before">
-  <img src="/images/wulkan/None1.png" alt="">
-  <div class="beer-reveal" data-beer-label="after">
-    <img src="/images/wulkan/ExtRheinhard1.png" alt="">
+To implement soft shadows, we take multiple samples around the uv of the projected texels. How much we offset depends on the average distance between an occluder an the light source (again mutliple samples used). Especially on the receiver sampling, we want good sampling patterns that do not introduce aliasing or more blockiness. In this implementation we use rotated vogel disk samples with the seed for the rotation given by the screen position. For more details on the soft shadow implementation used, read [Contact-hardening Soft Shadows Made Fast](https://wojtsterna.com/wp-content/uploads/2023/02/contact_hardening_soft_shadows.pdf).
+
+<div id="slider1" class="beer-slider" data-beer-label="Soft Shadows">
+  <img src="/images/wulkan/SoftShadows.png" alt="">
+
+  <div class="beer-reveal" data-beer-label="Hard Shadows">
+    <img src="/images/wulkan/HardShadows.png" alt="">
   </div>
 </div>
 
 <script src="/beerslider/BeerSlider.js"></script>
-<!-- <script>   new BeerSlider(document.getElementById('slider')); </script> -->
-
 
 <script>
   document.querySelectorAll('.beer-slider').forEach(el => {

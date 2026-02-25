@@ -1,0 +1,18 @@
+{{ $recentArticles := 5 }}
+
+{{ $recentArticles := .Site.Params.homepage.showRecentItems }}
+
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  {{/* Limit to main sections */}}
+  {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+
+  {{/* Only pages explicitly marked as featured */}}
+  {{ $featured := where $pages "Params.featured" true }}
+
+  {{/* Sort by weight (editorial order), fallback to date if weights match */}}
+  {{ $featured = sort $featured "Weight" "Date" }}
+
+  {{ range first $recentArticles $featured }}
+    {{ partial "article-link/card.html" . }}
+  {{ end }}
+</section>
