@@ -3,7 +3,7 @@ title: "Wulkan"
 date: 2026-01-29T11:22:10+01:00
 description: "a real-time renderer in vulkan to learn new things with"
 summary: "summary"
-tags: ["vulkan", "real-time rendering", "C++"]
+tags: ["vulkan", "real-time rendering", "C++", "GLSL", "Slang"]
 
 featured: true
 weight: 1

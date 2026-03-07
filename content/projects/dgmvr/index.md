@@ -3,7 +3,7 @@ title: "Digital garment modelling in VR"
 description: "a virtual reality cloth simulation app"
 summary: "summary"
 date: 2026-01-28T17:33:54+01:00
-tags: ["VR", "Unity", "Simulation", "C++"]
+tags: ["VR", "Unity", "Simulation", "C++", "C#"]
 
 featured: true
 weight: 2
