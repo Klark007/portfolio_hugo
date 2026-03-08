@@ -7,7 +7,7 @@ weight: 3
 tags: ["C++", "Pathtracing"]
 ---
 
-<link rel="stylesheet" type="text/css" href="portfolio_hugo/beerslider/BeerSlider.css">
+<link rel="stylesheet" type="text/css" href="/portfolio_hugo/beerslider/BeerSlider.css">
 
 A physically based pathtracer built in C++ as part of ETH Zürich's computer graphics course, extended with advanced rendering features including volumetric media, Disney BRDF, and low-discrepancy sampling. The renderer is based on [Nori](https://wjakob.github.io/nori/), a minimal pathtracer 
 framework providing model loading, ray-triangle intersection, and BVH acceleration. During the homeworks I implemented features such as diffuse, specular and dielectic materials (with multiple importance sampling), and photon mapping. he final project was done in a group 
@@ -78,7 +78,7 @@ Heterogeneous participating media is rendered using delta tracking and supports 
   Volume with Henyey-Greenstein phase function (g = 0.8)
 </div>
 
-<script src="portfolio_hugo/beerslider/BeerSlider.js"></script>
+<script src="/portfolio_hugo/beerslider/BeerSlider.js"></script>
 
 <script>
   document.querySelectorAll('.beer-slider').forEach(el => {
