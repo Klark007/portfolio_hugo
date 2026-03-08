@@ -31,11 +31,11 @@ There are many different approaches used to simulate fabrics (table links either
 
 | Method                      | Fast | Precise | Anisotropic deformations |
 |-----------------------------|:----:|:-------:|:------------------------:|
-| Mass spring systems [\[1\]](https://github.com/Matusson/UCloth/tree/master​)   | ✓    | X       | X                        |
-| Finite element method [\[2\]](https://animation.rwth-aachen.de/media/papers/2013-CAG-AdaptiveCloth.pdf)   | X    | ✓       | ✓                        |
-| Yarn level simulation [\[3\]](https://dl.acm.org/doi/10.1145/2661229.2661279)   | X    | ✓       | ✓                        |
-| Position based dynamics [\[4\]](https://github.com/yesongO/cloth-vr-simulation​) | ✓    | ~       | X                        |
-| Chebshev [\[5\]](https://igl.ethz.ch/projects/chebyshev/)                | ✓    | ✓       | ✓                        |
+| Mass spring systems [(1)](https://github.com/Matusson/UCloth) | ✓    | X       | X                        |
+| Finite element method [(2)](https://animation.rwth-aachen.de/media/papers/2013-CAG-AdaptiveCloth.pdf)   | X    | ✓       | ✓                        |
+| Yarn level simulation [(3)](https://dl.acm.org/doi/10.1145/2661229.2661279)   | X    | ✓       | ✓                        |
+| Position based dynamics [(4)](https://github.com/yesongO/cloth-vr-simulation) | ✓    | ~       | X                        |
+| Chebshev [(5)](https://igl.ethz.ch/projects/chebyshev/)                | ✓    | ✓       | ✓                        |
 
 ### Chebyshev deformation
 The goal of the semester thesis was to implement the Chebyshev deformation (introduced by Annika Öehri [here](https://igl.ethz.ch/projects/chebyshev/)) in Unity. The goal of the method is to solve minimize following energy describing the stretching of our mesh along the yarn lines.
