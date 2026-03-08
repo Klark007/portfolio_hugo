@@ -35,7 +35,7 @@ Here a comparison between uniform and halton sampling both with 16 sample per pi
   <img src="/portfolio_hugo/images/pathtracer/path_halton.png" alt="">
 
   <div class="beer-reveal" data-beer-label="Independent">
-    <img src="/portfolio_hugo/pathtracer/path_independent.png" alt="">
+    <img src="/portfolio_hugo/images/pathtracer/path_independent.png" alt="">
   </div>
 </div>
 
