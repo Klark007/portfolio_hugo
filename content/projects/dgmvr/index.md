@@ -80,4 +80,9 @@ The project was made in Unity 5 and supports Meta's headsets with the Meta Quest
 
 Instead the project relies on Unity's support for external C++ dll, handling the whole simulation in C++ with [Eigen](https://libeigen.gitlab.io/) and [Libigl](https://libigl.github.io/) while passing the mesh data between each other. The simulation supports grabbing handles and changing different parameters (stiffness, regularization strength, gravity strength) and does one iteration per frame.
 
+## Code
 The code of this project is hosted on [Github](https://github.com/Klark007/dgmvr).
+
+## Acknowledgement
+
+This project was developed as a semester thesis at [IGL](https://igl.ethz.ch/) under the supervision of Annika Oehri

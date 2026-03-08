@@ -1,6 +1,6 @@
-baseURL = "https://klark007.github.io/portfolio_hugo/"
+baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "Rendering Portfolio "
+title = "Rendering Portfolio"
 
 [security.html]
   allowInlineScripts = true  # Allows <script> tags with inline JS
