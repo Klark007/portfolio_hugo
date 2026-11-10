@@ -5,7 +5,7 @@ summary: "summary"
 date: 2026-01-28T17:33:54+01:00
 tags: ["VR", "Unity", "Simulation", "C++", "C#"]
 
-featured: true
+featured: false
 weight: 2
 
 params:
